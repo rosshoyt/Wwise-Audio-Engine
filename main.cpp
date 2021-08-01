@@ -1,20 +1,47 @@
-// Wwise-Audio-Engine.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// main.cpp : This file contains the 'main' function. CLI Program execution begins and ends there.
 //
-
 #include <iostream>
 
-int main()
-{
-    std::cout << "Hello World!\n";
+/**
+* Displays the text input commands that the user can execute in the CLI
+*/
+void showHelpCommands() {
+    std::cout << "Commands:\nh = show help menu\nq = exit\n";
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+/**
+* CLI program main entry point
+*/
+int main()
+{
+    // Flag for exiting program
+    bool exit = false;
+   
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+    // Show title message and help commands to user  
+    std::cout << "Welcome to the Wwise Integration Test CLI!\n";
+    showHelpCommands();
+  
+    // Accept and process user input
+    while(!exit) 
+    {
+        char userInput;
+        std::cin >> userInput;
+
+        // Process user input
+        switch (userInput)
+        {
+        case 'h':
+            showHelpCommands();
+            break;
+        case 'q':
+            exit = true;
+            break;
+        default:
+            std::cout << "Command not recognized, try again.\n";
+            break;
+        }
+    }
+    std::cout << "Exiting...\n";
+    return 0;
+}

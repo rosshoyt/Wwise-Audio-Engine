@@ -1,6 +1,7 @@
 // main.cpp : This file contains the 'main' function. CLI Program execution begins and ends there.
 //
 #include <iostream>
+#include "WwiseAudioEngine.h"
 
 /**
 * Displays the text input commands that the user can execute in the CLI
@@ -21,6 +22,8 @@ int main()
     // Show title message and help commands to user  
     std::cout << "Welcome to the Wwise Integration Test CLI!\n";
     showHelpCommands();
+
+    WwiseAudioEngine audioEngine;
   
     // Accept and process user input
     while(!exit) 
